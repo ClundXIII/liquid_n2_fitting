@@ -19,7 +19,7 @@ main: temp/main.o
 	$(LDFLAGS)
 
 #all source files:
-temp/main.o: src/main.cpp temp
+temp/main.o: src/main.cpp src/define.h temp
 	$(CC) $(CFLAGS) $(INCLDIR) src/main.cpp   -o temp/main.o
 
 #header files:
