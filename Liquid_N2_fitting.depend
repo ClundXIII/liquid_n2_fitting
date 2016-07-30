@@ -1,0 +1,26 @@
+# depslib dependency file v1.0
+1469874929 source:/home/simon/liquid_n2_fitting/src/main.cpp
+	<iostream>
+	<math.h>
+	<vector>
+	<string>
+	<fstream>
+	"define.h"
+	"vector.h"
+
+1469873552 /home/simon/liquid_n2_fitting/src/define.h
+
+1469873760 /home/simon/liquid_n2_fitting/src/vec3bdt.h
+	"vector.h"
+
+1469873697 /home/simon/liquid_n2_fitting/src/vector.h
+	<vector>
+	"define.h"
+
+1469873945 source:/home/simon/liquid_n2_fitting/src/vec3bdt.cpp
+	"./vec3bdt.h"
+
+1469874130 source:/home/simon/liquid_n2_fitting/src/vector.cpp
+	<math.h>
+	"vector.h"
+
