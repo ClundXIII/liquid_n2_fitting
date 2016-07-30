@@ -5,14 +5,22 @@ I wrote about 5 pages of theory, I might put them up later for reference :)
 
 # Compile
 
-g++ -std=c++0x main.cpp -o main
+make
+
+# Clean
+
+make clean
 
 # Run
 
 ## Run Simulation
 
-./main
+./liquid_n2_fitting
 
 ## Run fit (interactive)
 
-./main plot
+./liquid_n2_fitting plot
+
+# Alternative:
+
+Use Codeblocks and open Project File
