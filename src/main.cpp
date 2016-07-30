@@ -6,7 +6,8 @@
 
 using namespace std;
 
-#define bdt double //Datentyp mit dieser Variable aendern
+#define bdt double //Basic Data Type. Change this to float
+                   //or double if you want
 
 ///Natur-Konstanten:
 const bdt p_t  = 12526;    //Tripelpunkt p
