@@ -12,5 +12,4 @@ const bdt d_H  = 5590;      //Verdampfungsenthalpie
 const bdt R_m  = 8.3144598; //universelle Gaskonstante
 const bdt c_wN2= 2.6;       //spezifische Waermekapazitaet Stickstoff
 
-
 #endif // DEFINE_H_INCLUDED

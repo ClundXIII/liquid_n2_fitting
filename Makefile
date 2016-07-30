@@ -21,8 +21,12 @@ main: temp/main.o
 #all source files:
 temp/main.o: src/main.cpp src/define.h temp
 	$(CC) $(CFLAGS) $(INCLDIR) src/main.cpp   -o temp/main.o
+temp/vector.o: src/vector.cpp src/vector.h
+	$(CC) $(CFLAGS) $(INCLDIR) src/vector.cpp -o temp/vector.o
 
 #header files:
+src/define.h:
+src/vector.h:    src/define.h
 
 #@touch temp/dummy
 temp:
