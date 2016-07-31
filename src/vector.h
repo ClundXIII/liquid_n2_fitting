@@ -17,11 +17,6 @@ class vector : public ::std::vector<T>{
 
         static std::vector<T> addTwo(std::vector<T> vec1,  std::vector<T> vec2);
 
-        //null vector. May be useful --> mv'ed to vec3bdt class
-        //static const std::vector<bdt> null;
-
-        //void invert();
-
         //does not change the vector
         vector normalize();
         T      getLength();

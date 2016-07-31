@@ -108,7 +108,7 @@ int main(int argc, char* argv[]){
     else if(argc == 2){
         std::string argument;
         argument = argv[1];
-        if (argument == "plot"){
+        if (argument == "fit"){
             std::cout << "Filename>";
             char inputName[256];
             std::cin.get(inputName, sizeof(inputName));

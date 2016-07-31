@@ -19,7 +19,7 @@ make clean
 
 ## Run fit (interactive)
 
-./liquid_n2_fitting plot
+./liquid_n2_fitting fit
 
 # Alternative:
 
