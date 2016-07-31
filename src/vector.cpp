@@ -25,8 +25,6 @@ vector<T>::vector(T x1, T x2, T x3){
 }
 
 template<class T>
-//template<class T>
-/*static */
 std::vector<T> vector<T>::addTwo(std::vector<T> vec1,  std::vector<T> vec2){
     if (vec1.size() != vec2.size())
         throw (char*) "error: size not identical in vector.cpp::static_addTwo";
@@ -56,12 +54,6 @@ T vector<T>::getLength(){
 
     return pow(sum, 0.5);
 }
-
-/*template<>
-const std::vector<bdt> vector<bdt>::null = vector<bdt>(3, 0);
-
-template<class T>
-const std::vector<bdt> vector<T>::null = vector<bdt>(3, 0);*/
 
 template<class T>
 vector<T> vector<T>::invert(std::vector<T> toInv){
@@ -141,4 +133,7 @@ vector<T> vector<T>::additionTo(std::vector<T> toAdd){
     return retV;
 }
 
-template class vector<bdt>;
+//template class vector<bdt>;
+template class vector<float>;
+template class vector<double>;
+template class vector<long double>;

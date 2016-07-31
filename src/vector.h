@@ -61,12 +61,6 @@ class vector : public ::std::vector<T>{
 
 };
 
-
-//template class vector<long double>;
-
-/*template <class T>
-class vector;*/
-
 }; /* namespace mymath */
 }; /* namespace vecm2 */
 
