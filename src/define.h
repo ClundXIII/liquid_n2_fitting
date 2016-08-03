@@ -2,7 +2,7 @@
 #define DEFINE_H_INCLUDED
 
 
-#define bdt double //Basic Data Type. Change this to float
+#define bdt long double //Basic Data Type. Change this to float
                    //or double if you want
 
 ///Natur-Konstanten:
