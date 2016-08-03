@@ -18,6 +18,8 @@ class simulation{
         bdt get_avrg_sum_p();
         bdt get_avrg_sum_squared_p();
 
+        bool correctTemp = true;
+
     protected:
 
         bdt p_0;

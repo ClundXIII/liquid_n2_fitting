@@ -89,7 +89,8 @@ vector<bdt> simulation::RK4_schritt(vector<bdt> data, bdt dt){
     data = data + ( (k1 + (k2 + k3) * 2 + k4) * dt/6);
 
     ///Korrigiere Temperatur:
-    data[2] = 1 / ( (((-R_m /d_H)*log(data[0]/p_t))+ (1./T_t) ) );
+    if (correctTemp)
+        data[2] = 1 / ( (((-R_m /d_H)*log(data[0]/p_t))+ (1./T_t) ) );
 
     return data;
 }
