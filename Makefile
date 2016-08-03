@@ -9,6 +9,8 @@ INCLDIR=
 
 all: main
 
+cleanall: clean
+
 clean:
 	@touch temp/dummy
 	rm temp/*
