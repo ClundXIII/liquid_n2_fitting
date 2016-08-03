@@ -86,6 +86,9 @@ bdt read_bdt(){
 
 int main(int argc, char* argv[]){
 
+    //load Settings:
+    simulation::loadSettingsFile("chamber.ini");
+
     ///Wir fangen da an, wo die Temperatur des Gases nahe der
     ///Dampfdruckkurvenenergie ist.
     bdt p_0   = 950 * 100; ///Anfangsdruck in mBar aka hPa *100

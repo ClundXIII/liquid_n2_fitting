@@ -1,6 +1,8 @@
 #include "simulation.h"
 
 #include <math.h>
+#include <fstream>
+#include <sstream>
 
 #define a_1 ((c_wN2*R_m*R_m)/(d_H*d_H))
 #define a_2 ((c_wN2*R_m)/(d_H*d_H))
@@ -17,6 +19,55 @@ simulation::simulation(bdt p_0, bdt n_fl, bdt dt, bdt stop, vector<bdt> p_mess, 
     //(this->print_s) = &print_s;
     this->offset = offset;
     this->P_const = P_const;
+}
+
+int simulation::loadSettingsFile(char s[]){
+    return loadSettingsFile((const char*)s);
+}
+
+int simulation::loadSettingsFile(const char s[]){
+    std::string tempS(s);
+    return loadSettingsFile(tempS);
+}
+
+int simulation::loadSettingsFile(std::string s){
+
+    std::cout << "loading config " << s << " ..." << std::endl;
+
+    std::ifstream f(s.c_str());
+
+    if (!f.good())
+        return -1;
+
+    if (f.eof())
+        return 1;
+
+    try {
+        while (!f.eof()){
+            std::string tempS;
+            f >> tempS;
+            if (tempS == "V"){
+                f >> V;
+            }
+            else if (tempS == "dV_pump"){
+                f >> dV_pump;
+            }
+            else if (tempS == "n_leak"){
+                f >> n_leak;
+            }
+            else {
+                //Skip the wrong option
+                f >> tempS;
+                std::cout << "unknown option: \"" << tempS << "\"!" << std::endl;
+            }
+        }
+    }
+    catch (...){
+        std::cout << "Unknown error while loading config File!" << std::endl;
+        return -2;
+    }
+
+    return 0;
 }
 
 simulation::~simulation(){
@@ -76,6 +127,7 @@ vector<bdt> simulation::f_strich(vector<bdt> input){
     retV.push_back(_p);
     retV.push_back(_n_fl);
     retV.push_back(_T);
+
     return retV;
 }
 
@@ -94,3 +146,8 @@ vector<bdt> simulation::RK4_schritt(vector<bdt> data, bdt dt){
 
     return data;
 }
+
+//Initialize default params
+bdt simulation::V       = 0.06252;   //Volume of the chamber
+bdt simulation::dV_pump = -.00134;   //Pump characteristic in m^3/second
+bdt simulation::n_leak  = 0.0000345; //Leakage of the chamber
