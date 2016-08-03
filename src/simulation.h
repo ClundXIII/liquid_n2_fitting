@@ -24,6 +24,8 @@ class simulation{
 
         bool correctTemp = true;
 
+        static vector<bdt> f_strich(vector<bdt> input, bdt constP);
+
     protected:
 
         bdt p_0;

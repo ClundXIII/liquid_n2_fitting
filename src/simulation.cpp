@@ -113,7 +113,7 @@ bdt simulation::get_avrg_sum_squared_p(){
     return deltaSqInsg;
 }
 
-vector<bdt> simulation::f_strich(vector<bdt> input){
+vector<bdt> simulation::f_strich(vector<bdt> input, bdt P_const){
     vector<bdt> retV;
 
     bdt p    = input.at(0);
@@ -129,6 +129,10 @@ vector<bdt> simulation::f_strich(vector<bdt> input){
     retV.push_back(_T);
 
     return retV;
+}
+
+vector<bdt> simulation::f_strich(vector<bdt> input){
+    return f_strich(input, P_const);
 }
 
 vector<bdt> simulation::RK4_schritt(vector<bdt> data, bdt dt){

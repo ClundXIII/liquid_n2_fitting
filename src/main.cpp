@@ -89,23 +89,34 @@ int main(int argc, char* argv[]){
     //load Settings:
     simulation::loadSettingsFile("chamber.ini");
 
-    ///Wir fangen da an, wo die Temperatur des Gases nahe der
-    ///Dampfdruckkurvenenergie ist.
-    bdt p_0   = 950 * 100; ///Anfangsdruck in mBar aka hPa *100
-    bdt n_fl  = 1;  ///In Mol
-    bdt T     = 77;
-
-    bdt dt = 1;
-    bdt stop = 120;
-
     if (argc == 1){
+        ///We start where the Temperature of the Gas is already close to
+        ///the boiling curve
+        bdt p_0   = 950 * 100; ///Starting pressure in mBar aka hPa *100
+        bdt n_fl  = 100;       ///In Mol
+        bdt T     = 77;        ///In K
+
+        bdt dt = 1;            ///Stepping
+        bdt stop = 120;        ///Run Simulation for 120 Seconds
+
         vector<bdt> data;
         data.push_back(p_0);
         data.push_back(n_fl);
         data.push_back(T);
+
+        bdt constP = 150;
+
         for (bdt t=0; t<stop; t+=dt){
             std::cout<<t<<" "<<data.at(0)/100<<" "<<data.at(1)<<" "<<data.at(2)<<std::endl;
-            //data = RK4_schritt(data, dt);
+                vector<bdt> k1 = simulation::f_strich(data, constP);
+                vector<bdt> k2 = simulation::f_strich(data + (k1 * dt/2), constP);
+                vector<bdt> k3 = simulation::f_strich(data + (k2 * dt/2), constP);
+                vector<bdt> k4 = simulation::f_strich(data+ k3, constP);
+
+                data = data + ( (k1 + (k2 + k3) * 2 + k4) * dt/6);
+
+                ///correct Temperatur:
+                data[2] = 1 / ( (((-R_m /d_H)*log(data[0]/p_t))+ (1./T_t) ) );
         }
     }
     else if(argc == 2){
@@ -131,7 +142,7 @@ int main(int argc, char* argv[]){
             }
             std::cout << "read " << file_t.size() << " datasets." << std::endl;
 
-            dt = file_t.back()/file_t.size();
+            bdt dt = file_t.back()/file_t.size();
 
             std::cout << "Stepsize (detected:'" << dt << "'):>"; std::cout.flush();
 
