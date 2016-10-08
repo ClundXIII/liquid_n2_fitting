@@ -26,6 +26,12 @@
 		<Unit filename="src/define.h">
 			<Option virtualFolder="src/" />
 		</Unit>
+		<Unit filename="src/fit.cpp">
+			<Option virtualFolder="src/classes/" />
+		</Unit>
+		<Unit filename="src/fit.h">
+			<Option virtualFolder="src/classes/" />
+		</Unit>
 		<Unit filename="src/main.cpp">
 			<Option virtualFolder="src/" />
 		</Unit>
