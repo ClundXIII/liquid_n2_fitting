@@ -24,3 +24,9 @@ make clean
 # Alternative:
 
 Use Codeblocks and open Project File
+
+## plot data with gnuplot
+
+gnuplot gp_script.plt
+
+The resulting filename will be "fit_plot.eps". Feel free to change the script to suit your needs ;-)
